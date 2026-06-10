@@ -4,7 +4,7 @@
 
 **Aplikasi mobile e-commerce petshop siap pakai, dibangun dengan Flutter & Firebase**
 
-*Aplikasi belanja hewan peliharaan open-source dengan keranjang, wishlist, checkout, lacak pesanan, notifikasi & lebih*
+*Aplikasi belanja hewan peliharaan dengan keranjang, wishlist, checkout, lacak pesanan, pembayaran Midtrans & notifikasi*
 
 *Clean Architecture | Riverpod | Firestore | Material Design 3*
 
@@ -12,6 +12,7 @@
 [![Dart](https://img.shields.io/badge/Dart-3.8+-0175C2?style=flat-square&logo=dart&logoColor=white)](https://dart.dev)
 [![Firebase](https://img.shields.io/badge/Firebase-Backend-FFCA28?style=flat-square&logo=firebase&logoColor=black)](https://firebase.google.com)
 [![Riverpod](https://img.shields.io/badge/Riverpod-State_Management-0553B1?style=flat-square&logo=riverpod&logoColor=white)](https://riverpod.dev)
+[![Midtrans](https://img.shields.io/badge/Midtrans-Payment_Gateway-003366?style=flat-square&logo=stripe&logoColor=white)](https://midtrans.com)
 [![License](https://img.shields.io/badge/License-Private-red?style=flat-square)]()
 [![Platform](https://img.shields.io/badge/Platform-Android_|_iOS_|_Web-green?style=flat-square)]()
 
@@ -23,34 +24,7 @@
 
 ## Overview
 
-Petshop Jinx adalah aplikasi e-commerce petshop untuk Android, iOS, dan Web. Menyediakan pengalaman belanja online lengkap mulai dari menjelajahi produk, pencarian, keranjang belanja, wishlist, checkout dengan metode cash on delivery, pelacakan pesanan secara real-time, hingga notifikasi push. Dibangun dengan clean architecture dan didukung Firebase untuk autentikasi, database, dan penyimpanan.
-
----
-
-## Screenshots
-
-<div align="center">
-<table>
-  <tr>
-    <td align="center"><img src="assets/screenshots/splash.png" width="200"/><br/><b>Splash</b></td>
-    <td align="center"><img src="assets/screenshots/login.png" width="200"/><br/><b>Login</b></td>
-    <td align="center"><img src="assets/screenshots/home.png" width="200"/><br/><b>Home</b></td>
-    <td align="center"><img src="assets/screenshots/category.png" width="200"/><br/><b>Kategori</b></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="assets/screenshots/cart.png" width="200"/><br/><b>Keranjang</b></td>
-    <td align="center"><img src="assets/screenshots/wishlist.png" width="200"/><br/><b>Wishlist</b></td>
-    <td align="center"><img src="assets/screenshots/checkout.png" width="200"/><br/><b>Checkout</b></td>
-    <td align="center"><img src="assets/screenshots/profile.png" width="200"/><br/><b>Profil</b></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="assets/screenshots/order_list.png" width="200"/><br/><b>Pesanan</b></td>
-    <td align="center"><img src="assets/screenshots/order_details.png" width="200"/><br/><b>Detail Pesanan</b></td>
-    <td align="center"><img src="assets/screenshots/notification.png" width="200"/><br/><b>Notifikasi</b></td>
-    <td></td>
-  </tr>
-</table>
-</div>
+Petshop Jinx adalah aplikasi e-commerce petshop untuk Android, iOS, dan Web. Menyediakan pengalaman belanja online lengkap mulai dari menjelajahi produk, pencarian, keranjang belanja, wishlist, checkout dengan pembayaran via Midtrans (Transfer Bank, QRIS, e-Wallet), pelacakan pesanan secara real-time, hingga notifikasi push. Dibangun dengan clean architecture dan didukung Firebase untuk autentikasi, database, dan penyimpanan.
 
 ---
 
@@ -58,6 +32,7 @@ Petshop Jinx adalah aplikasi e-commerce petshop untuk Android, iOS, dan Web. Men
 
 - **Flutter** (Dart 3.8+) — cross-platform (Android, iOS, Web)
 - **Firebase** — Auth, Firestore, Cloud Storage, Cloud Messaging
+- **Midtrans Snap.js** — payment gateway (Transfer Bank, QRIS, GoPay, OVO, dll)
 - **Riverpod** — state management (dengan code generation)
 - **GoRouter** — declarative routing dengan auth guards (StatefulShellRoute)
 - **Freezed** — immutable data models
@@ -73,7 +48,8 @@ Petshop Jinx adalah aplikasi e-commerce petshop untuk Android, iOS, dan Web. Men
 - Pencarian produk full-text
 - Keranjang belanja (tambah, hapus, ubah jumlah)
 - Wishlist (simpan produk favorit)
-- Checkout dengan detail pengiriman & cash on delivery
+- Checkout dengan detail pengiriman
+- **Pembayaran via Midtrans** (Transfer Bank, QRIS, GoPay, OVO, Dana, Kartu Kredit)
 - Riwayat pesanan dengan pelacakan status real-time (pending, dikonfirmasi, dikirim, diterima)
 - Notifikasi push saat status pesanan berubah
 - Pusat notifikasi in-app dengan badge belum dibaca
@@ -95,7 +71,7 @@ lib/
 │   ├── products/       #   Daftar produk
 │   ├── product_detail/ #   Detail produk
 │   ├── cart/           #   Keranjang belanja
-│   ├── checkout/       #   Proses checkout
+│   ├── checkout/       #   Proses checkout & pembayaran
 │   ├── orders/         #   Manajemen pesanan
 │   ├── notifications/  #   Notifikasi push & in-app
 │   ├── wishlist/       #   Wishlist
@@ -114,6 +90,7 @@ Setiap fitur mengikuti pemisahan layer **data / domain / presentation**.
 - Dart 3.8+
 - Android Studio / Xcode (untuk emulator)
 - Proyek Firebase (lihat [dokumentasi setup Firebase](https://firebase.google.com/docs/flutter/setup))
+- Akun Midtrans (lihat [Midtrans Dashboard](https://dashboard.midtrans.com))
 
 ### Setup
 
@@ -131,6 +108,18 @@ dart run build_runner build --delete-conflicting-outputs
 # Jalankan aplikasi
 flutter run
 ```
+
+### Konfigurasi Environment
+
+Buat file `.env` di root project:
+
+```env
+MIDTRANS_CLIENT_KEY=SB-Mid-client-xxxxxxxxxxxx
+MIDTRANS_SERVER_KEY=SB-Mid-server-xxxxxxxxxxxx
+MIDTRANS_IS_PRODUCTION=false
+```
+
+> Gunakan key **Sandbox** untuk development dan testing. Ganti ke key **Production** saat live.
 
 ### Perintah Berguna
 
@@ -167,6 +156,47 @@ Aplikasi menggunakan layanan Firebase berikut:
 
 Aturan keamanan Firestore mengizinkan pembacaan publik untuk produk/kategori dan penulisan terbatas per pengguna untuk keranjang, pesanan, dan notifikasi. Lihat [firestore.rules](firestore.rules) dan [storage.rules](storage.rules).
 
+## Setup Midtrans
+
+Aplikasi menggunakan **Midtrans Snap** sebagai payment gateway.
+
+### Alur Pembayaran
+
+1. User melakukan checkout dan memilih metode pembayaran
+2. Aplikasi mengirim request ke backend untuk membuat transaksi Midtrans
+3. Backend mengembalikan `snap_token`
+4. Aplikasi membuka Midtrans Snap UI via `snap_token`
+5. User menyelesaikan pembayaran (Transfer Bank, QRIS, e-Wallet, dll)
+6. Callback Snap menangkap hasil pembayaran dan memperbarui status pesanan
+
+### Metode Pembayaran yang Didukung
+
+| Metode | Keterangan |
+|--------|-----------|
+| Transfer Bank | BCA, BNI, BRI, Mandiri, Permata |
+| QRIS | Semua aplikasi yang mendukung QRIS |
+| GoPay | Dompet digital Gojek |
+| OVO | Dompet digital OVO |
+| Dana | Dompet digital Dana |
+| Kartu Kredit/Debit | Visa, Mastercard |
+| Indomaret / Alfamart | Pembayaran tunai di minimarket |
+
+### Konfigurasi di Aplikasi
+
+```dart
+// core/config/midtrans_config.dart
+class MidtransConfig {
+  static const String clientKey = String.fromEnvironment('MIDTRANS_CLIENT_KEY');
+  static const bool isProduction = bool.fromEnvironment('MIDTRANS_IS_PRODUCTION');
+
+  static String get snapUrl => isProduction
+      ? 'https://app.midtrans.com/snap/snap.js'
+      : 'https://app.sandbox.midtrans.com/snap/snap.js';
+}
+```
+
+> **Catatan:** Karena keterbatasan webhook di localhost, status pembayaran ditangani melalui callback Snap.js sisi client.
+
 ### Notifikasi
 
 Ketika status pesanan berubah di Firestore, aplikasi akan:
@@ -179,7 +209,7 @@ Ketika status pesanan berubah di Firestore, aplikasi akan:
 
 Aplikasi mengikuti **Clean Architecture** dengan tiga layer per fitur:
 
-1. **Data** — implementasi repository (Firebase, API calls)
+1. **Data** — implementasi repository (Firebase, API calls, Midtrans)
 2. **Domain** — model (kelas Freezed), antarmuka repository
 3. **Presentation** — widget UI, ViewModel (Riverpod providers)
 
@@ -193,8 +223,8 @@ Proyek ini bersifat privat dan tidak dilisensikan untuk redistribusi.
 
 <div align="center">
 
-**Dibuat oleh Made Igin · Dibangun dengan Flutter & Firebase**
+**Dibuat oleh Made Igin · Dibangun dengan Flutter, Firebase & Midtrans**
 
-`petshop` `flutter-ecommerce` `flutter-shopping-app` `shopping-cart` `online-store` `flutter-app` `flutter` `dart` `firebase` `firestore` `riverpod` `clean-architecture` `material-design-3` `go-router` `freezed` `push-notifications` `wishlist` `order-tracking` `google-sign-in` `cross-platform`
+`petshop` `flutter-ecommerce` `flutter-shopping-app` `shopping-cart` `online-store` `flutter-app` `flutter` `dart` `firebase` `firestore` `riverpod` `clean-architecture` `material-design-3` `go-router` `freezed` `midtrans` `payment-gateway` `push-notifications` `wishlist` `order-tracking` `google-sign-in` `cross-platform`
 
 </div>
