@@ -1,0 +1,142 @@
+[
+  {
+    "id": "cartup_683780",
+    "title": "Makanan Kering Kucing Premium Royal Canin 2kg",
+    "description": "Makanan kering bernutrisi tinggi khusus kucing dewasa untuk menjaga kesehatan bulu dan pencernaan.",
+    "price": 27000.0,
+    "originalPrice": 28500.0,
+    "discountPercent": 5,
+    "images": [
+      "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=600"
+    ],
+    "categoryId": "pet_supplies",
+    "stock": 49,
+    "sourceUrl": "https://cartup.com/p/makanan_kering_kucing_premium_royal_canin_2kg"
+  },
+  {
+    "id": "cartup_662683",
+    "title": "Vitamin Bulu & Nafsu Makan Kucing Whiskas",
+    "description": "Suplemen minyak ikan lengkap untuk melebatkan bulu serta mendongkrak nafsu makan hewan.",
+    "price": 15000.0,
+    "originalPrice": 16500.0,
+    "discountPercent": 9,
+    "images": [
+      "https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=600"
+    ],
+    "categoryId": "pet_supplies",
+    "stock": 977,
+    "sourceUrl": "https://cartup.com/p/vitamin_bulu_nafsu_makan_kucing_whiskas"
+  },
+  {
+    "id": "cartup_315547",
+    "title": "Pakan Nutrisi Anjing Pedigree Dry Food 3kg",
+    "description": "Makanan anjing lezat lengkap dengan omega 6 untuk mendukung keaktifan anjing peliharaan.",
+    "price": 30000.0,
+    "originalPrice": 37500.0,
+    "discountPercent": 20,
+    "images": [
+      "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600"
+    ],
+    "categoryId": "pet_supplies",
+    "stock": 4930,
+    "sourceUrl": "https://cartup.com/p/pakan_nutrisi_anjing_pedigree_dry_food_3kg"
+  },
+  {
+    "id": "cartup_2137324",
+    "title": "Susu Formula Kitten Bebas Laktosa 200g",
+    "description": "Susu bubuk pengganti ASI khusus untuk anak kucing (kitten) rendah laktosa agar bebas dari diare.",
+    "price": 20250.0,
+    "originalPrice": 22500.0,
+    "discountPercent": 10,
+    "images": [
+      "https://images.unsplash.com/photo-1574158622643-69d34d72650a?w=600"
+    ],
+    "categoryId": "pet_supplies",
+    "stock": 54,
+    "sourceUrl": "https://cartup.com/p/susu_formula_kitten_bebas_laktosa_200g"
+  },
+  {
+    "id": "cartup_633346",
+    "title": "Shampoo Anti Kutu dan Jamur Kucing Anjing 250ml",
+    "description": "Shampoo khusus hewan dengan formula anti jamur, anti kutu, dan melembutkan rambut.",
+    "price": 12150.0,
+    "originalPrice": 13500.0,
+    "discountPercent": 10,
+    "images": [
+      "https://images.unsplash.com/photo-1535268647977-a403b69def7e?w=600"
+    ],
+    "categoryId": "pet_supplies",
+    "stock": 99,
+    "sourceUrl": "https://cartup.com/p/shampoo_anti_kutu_dan_jamur_kucing_anjing_250ml"
+  },
+  {
+    "id": "cartup_2136064",
+    "title": "Popok Celana Hewan Instan Dono Diaper Pack",
+    "description": "Popok higienis sekali pakai dengan daya serap super tinggi untuk anjing dan kucing saat bepergian.",
+    "price": 16200.0,
+    "originalPrice": 18000.0,
+    "discountPercent": 10,
+    "images": [
+      "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600"
+    ],
+    "categoryId": "pet_supplies",
+    "stock": 33,
+    "sourceUrl": "https://cartup.com/p/popok_celana_hewan_instan_dono_diaper_pack"
+  },
+  {
+    "id": "cartup_1051891",
+    "title": "Pasir Kucing Gumpal Wangi Bentonite 5L",
+    "description": "Pasir kucing berkualitas tinggi, cepat menggumpal saat terkena kotoran dan efektif menyerap bau.",
+    "price": 11250.0,
+    "originalPrice": 12750.0,
+    "discountPercent": 11,
+    "images": [
+      "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=600"
+    ],
+    "categoryId": "pet_supplies",
+    "stock": 15,
+    "sourceUrl": "https://cartup.com/p/pasir_kucing_gumpal_wangi_bentonite_5l"
+  },
+  {
+    "id": "cartup_830553",
+    "title": "Kandang Kucing Lipat Besi Tebal Size XL",
+    "description": "Kandang besi lipat premium anti karat, kuat, kokoh, dan luas untuk kenyamanan hewan.",
+    "price": 59850.0,
+    "originalPrice": 67500.0,
+    "discountPercent": 11,
+    "images": [
+      "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=600"
+    ],
+    "categoryId": "pet_supplies",
+    "stock": 409,
+    "sourceUrl": "https://cartup.com/p/kandang_kucing_lipat_besi_tebal_size_xl"
+  },
+  {
+    "id": "cartup_84375",
+    "title": "Gunting Kuku & Sisir Bulu Hewan Pet Grooming Kit",
+    "description": "Set perlengkapan mandi praktis pemotong kuku dan sisir bulu hewan untuk perawatan rutin.",
+    "price": 9750.0,
+    "originalPrice": 11250.0,
+    "discountPercent": 13,
+    "images": [
+      "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600"
+    ],
+    "categoryId": "pet_supplies",
+    "stock": 968,
+    "sourceUrl": "https://cartup.com/p/gunting_kuku_sisir_bulu_hewan_pet_grooming_kit"
+  },
+  {
+    "id": "cartup_1721164",
+    "title": "Tempat Makan Otomatis Anti Semut Pet Feeder",
+    "description": "Dispenser wadah makanan otomatis berkapasitas besar dengan desain khusus penangkal semut.",
+    "price": 24000.0,
+    "originalPrice": 27000.0,
+    "discountPercent": 11,
+    "images": [
+      "https://images.unsplash.com/photo-1615678815958-5910c6811c25?w=600"
+    ],
+    "categoryId": "pet_supplies",
+    "stock": 7,
+    "sourceUrl": "https://cartup.com/p/tempat_makan_otomatis_anti_semut_pet_feeder"
+  }
+]

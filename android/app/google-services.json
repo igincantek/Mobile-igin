@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "908202737543",
+    "project_id": "nextcart-523fb",
+    "storage_bucket": "nextcart-523fb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908202737543:android:7d238c9c6c088e24965d22",
+        "android_client_info": {
+          "package_name": "com.farhan.nextcart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908202737543-dgi784bedgdvomv3h2u5s8t1f39ii73r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.farhan.nextcart",
+            "certificate_hash": "935ff7f5ac8086b871884ef86b759c9b9eba7718"
+          }
+        },
+        {
+          "client_id": "908202737543-g6bpah4csd30hbp651bitmm0fs1pta75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-Wvj4qna-AXLYtkPMmC63JvxRt4-uKeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908202737543-g6bpah4csd30hbp651bitmm0fs1pta75.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "908202737543-bkems7l3bstjkn157vap346ecpj10bvi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.farhan.nextcart"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

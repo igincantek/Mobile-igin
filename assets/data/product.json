@@ -1,0 +1,14 @@
+{
+  "id": "cartup_683780",
+  "title": "Makanan Kering Kucing Premium Royal Canin 2kg",
+  "description": "Makanan kering bernutrisi tinggi khusus kucing dewasa untuk menjaga kesehatan bulu dan pencernaan.",
+  "price": 27000.0,
+  "originalPrice": 28500.0,
+  "discountPercent": 5,
+  "images": [
+    "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=600"
+  ],
+  "categoryId": "pet_supplies",
+  "stock": 49,
+  "sourceUrl": "https://cartup.com/p/makanan_kering_kucing_premium_royal_canin_2kg"
+}

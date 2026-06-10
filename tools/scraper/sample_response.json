@@ -1,0 +1,123 @@
+{
+  "data": {
+    "pageInfo": {
+      "totalCount": 10,
+      "rowsPerPage": 50,
+      "currentPage": 1,
+      "totalPageCount": 1,
+      "hasNextPage": false
+    },
+    "items": [
+      {
+        "id": 683780,
+        "name": "Makanan Kering Kucing Premium Royal Canin 2kg",
+        "images": ["https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=600"],
+        "thumbnail": "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=600",
+        "price": 190,
+        "discountedPrice": 180,
+        "discountPercentage": 5,
+        "slug": "makanan_kering_kucing_premium_royal_canin_2kg",
+        "currentStockQty": 49
+      },
+      {
+        "id": 662683,
+        "name": "Vitamin Bulu & Nafsu Makan Kucing Whiskas",
+        "images": ["https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=600"],
+        "thumbnail": "https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=600",
+        "price": 110,
+        "discountedPrice": 100,
+        "discountPercentage": 9,
+        "slug": "vitamin_bulu_nafsu_makan_kucing_whiskas",
+        "currentStockQty": 977
+      },
+      {
+        "id": 315547,
+        "name": "Pakan Nutrisi Anjing Pedigree Dry Food 3kg",
+        "images": ["https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600"],
+        "thumbnail": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600",
+        "price": 250,
+        "discountedPrice": 200,
+        "discountPercentage": 20,
+        "slug": "pakan_nutrisi_anjing_pedigree_dry_food_3kg",
+        "currentStockQty": 4930
+      },
+      {
+        "id": 2137324,
+        "name": "Susu Formula Kitten Bebas Laktosa 200g",
+        "images": ["https://images.unsplash.com/photo-1574158622643-69d34d72650a?w=600"],
+        "thumbnail": "https://images.unsplash.com/photo-1574158622643-69d34d72650a?w=600",
+        "price": 150,
+        "discountedPrice": 135,
+        "discountPercentage": 10,
+        "slug": "susu_formula_kitten_bebas_laktosa_200g",
+        "currentStockQty": 54
+      },
+      {
+        "id": 633346,
+        "name": "Shampoo Anti Kutu dan Jamur Kucing Anjing 250ml",
+        "images": ["https://images.unsplash.com/photo-1535268647977-a403b69def7e?w=600"],
+        "thumbnail": "https://images.unsplash.com/photo-1535268647977-a403b69def7e?w=600",
+        "price": 90,
+        "discountedPrice": 81,
+        "discountPercentage": 10,
+        "slug": "shampoo_anti_kutu_dan_jamur_kucing_anjing_250ml",
+        "currentStockQty": 99
+      },
+      {
+        "id": 2136064,
+        "name": "Popok Celana Hewan Instan Dono Diaper Pack",
+        "images": ["https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600"],
+        "thumbnail": "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600",
+        "price": 120,
+        "discountedPrice": 108,
+        "discountPercentage": 10,
+        "slug": "popok_celana_hewan_instan_dono_diaper_pack",
+        "currentStockQty": 33
+      },
+      {
+        "id": 1051891,
+        "name": "Pasir Kucing Gumpal Wangi Bentonite 5L",
+        "images": ["https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=600"],
+        "thumbnail": "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=600",
+        "price": 85,
+        "discountedPrice": 75,
+        "discountPercentage": 11,
+        "slug": "pasir_kucing_gumpal_wangi_bentonite_5l",
+        "currentStockQty": 15
+      },
+      {
+        "id": 830553,
+        "name": "Kandang Kucing Lipat Besi Tebal Size XL",
+        "images": ["https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=600"],
+        "thumbnail": "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=600",
+        "price": 450,
+        "discountedPrice": 399,
+        "discountPercentage": 11,
+        "slug": "kandang_kucing_lipat_besi_tebal_size_xl",
+        "currentStockQty": 409
+      },
+      {
+        "id": 84375,
+        "name": "Gunting Kuku & Sisir Bulu Hewan Pet Grooming Kit",
+        "images": ["https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600"],
+        "thumbnail": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600",
+        "price": 75,
+        "discountedPrice": 65,
+        "discountPercentage": 13,
+        "slug": "gunting_kuku_sisir_bulu_hewan_pet_grooming_kit",
+        "currentStockQty": 968
+      },
+      {
+        "id": 1721164,
+        "name": "Tempat Makan Otomatis Anti Semut Pet Feeder",
+        "images": ["https://images.unsplash.com/photo-1615678815958-5910c6811c25?w=600"],
+        "thumbnail": "https://images.unsplash.com/photo-1615678815958-5910c6811c25?w=600",
+        "price": 180,
+        "discountedPrice": 160,
+        "discountPercentage": 11,
+        "slug": "tempat_makan_otomatis_anti_semut_pet_feeder",
+        "currentStockQty": 7
+      }
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+[
+  {
+    "provinsi": "DKI Jakarta",
+    "cities": [
+      { "city_id": "151", "city_name": "Jakarta Pusat", "postal_code": "10110", "ongkir": 10000 },
+      { "city_id": "152", "city_name": "Jakarta Selatan", "postal_code": "12110", "ongkir": 10000 },
+      { "city_id": "153", "city_name": "Jakarta Barat", "postal_code": "11110", "ongkir": 12000 },
+      { "city_id": "154", "city_name": "Jakarta Timur", "postal_code": "13110", "ongkir": 12000 },
+      { "city_id": "155", "city_name": "Jakarta Utara", "postal_code": "14110", "ongkir": 15000 }
+    ]
+  },
+  {
+    "provinsi": "Banten",
+    "cities": [
+      { "city_id": "455", "city_name": "Tangerang", "postal_code": "15111", "ongkir": 12000 },
+      { "city_id": "456", "city_name": "Tangerang Selatan", "postal_code": "15310", "ongkir": 12000 },
+      { "city_id": "118", "city_name": "Cilegon", "postal_code": "42411", "ongkir": 18000 },
+      { "city_id": "390", "city_name": "Serang", "postal_code": "42111", "ongkir": 16000 }
+    ]
+  },
+  {
+    "provinsi": "Jawa Barat",
+    "cities": [
+      { "city_id": "23", "city_name": "Bandung", "postal_code": "40111", "ongkir": 20000 },
+      { "city_id": "22", "city_name": "Kab. Bandung", "postal_code": "40311", "ongkir": 22000 },
+      { "city_id": "54", "city_name": "Bekasi", "postal_code": "17111", "ongkir": 12000 },
+      { "city_id": "55", "city_name": "Kab. Bekasi", "postal_code": "17510", "ongkir": 14000 },
+      { "city_id": "78", "city_name": "Bogor", "postal_code": "16111", "ongkir": 15000 },
+      { "city_id": "79", "city_name": "Kab. Bogor", "postal_code": "16910", "ongkir": 17000 },
+      { "city_id": "126", "city_name": "Depok", "postal_code": "16411", "ongkir": 12000 },
+      { "city_id": "109", "city_name": "Cirebon", "postal_code": "45111", "ongkir": 22000 },
+      { "city_id": "431", "city_name": "Sukabumi", "postal_code": "43111", "ongkir": 20000 },
+      { "city_id": "468", "city_name": "Tasikmalaya", "postal_code": "46111", "ongkir": 24000 },
+      { "city_id": "107", "city_name": "Cimahi", "postal_code": "40511", "ongkir": 20000 }
+    ]
+  },
+  {
+    "provinsi": "Jawa Tengah",
+    "cities": [
+      { "city_id": "399", "city_name": "Semarang", "postal_code": "50111", "ongkir": 22000 },
+      { "city_id": "444", "city_name": "Surakarta (Solo)", "postal_code": "57111", "ongkir": 22000 },
+      { "city_id": "249", "city_name": "Magelang", "postal_code": "56111", "ongkir": 24000 },
+      { "city_id": "351", "city_name": "Pekalongan", "postal_code": "51111", "ongkir": 24000 },
+      { "city_id": "464", "city_name": "Tegal", "postal_code": "52111", "ongkir": 24000 },
+      { "city_id": "103", "city_name": "Cilacap", "postal_code": "53211", "ongkir": 26000 },
+      { "city_id": "41", "city_name": "Banyumas (Purwokerto)", "postal_code": "53111", "ongkir": 25000 },
+      { "city_id": "226", "city_name": "Kudus", "postal_code": "59311", "ongkir": 24000 }
+    ]
+  },
+  {
+    "provinsi": "DI Yogyakarta",
+    "cities": [
+      { "city_id": "501", "city_name": "Yogyakarta", "postal_code": "55111", "ongkir": 22000 },
+      { "city_id": "414", "city_name": "Sleman", "postal_code": "55511", "ongkir": 24000 },
+      { "city_id": "39", "city_name": "Bantul", "postal_code": "55711", "ongkir": 24000 }
+    ]
+  },
+  {
+    "provinsi": "Jawa Timur",
+    "cities": [
+      { "city_id": "419", "city_name": "Surabaya", "postal_code": "60111", "ongkir": 25000 },
+      { "city_id": "255", "city_name": "Malang", "postal_code": "65111", "ongkir": 27000 },
+      { "city_id": "214", "city_name": "Kediri", "postal_code": "64111", "ongkir": 27000 },
+      { "city_id": "409", "city_name": "Sidoarjo", "postal_code": "61211", "ongkir": 25000 },
+      { "city_id": "141", "city_name": "Gresik", "postal_code": "61111", "ongkir": 25000 },
+      { "city_id": "289", "city_name": "Mojokerto", "postal_code": "61311", "ongkir": 27000 },
+      { "city_id": "264", "city_name": "Madiun", "postal_code": "63111", "ongkir": 27000 },
+      { "city_id": "42", "city_name": "Banyuwangi", "postal_code": "68411", "ongkir": 32000 },
+      { "city_id": "183", "city_name": "Jember", "postal_code": "68111", "ongkir": 30000 }
+    ]
+  },
+  {
+    "provinsi": "Bali",
+    "cities": [
+      { "city_id": "114", "city_name": "Denpasar", "postal_code": "80111", "ongkir": 30000 },
+      { "city_id": "17", "city_name": "Badung (Kuta)", "postal_code": "80361", "ongkir": 32000 },
+      { "city_id": "128", "city_name": "Gianyar", "postal_code": "80511", "ongkir": 34000 }
+    ]
+  },
+  {
+    "provinsi": "Sumatera Utara",
+    "cities": [
+      { "city_id": "278", "city_name": "Medan", "postal_code": "20111", "ongkir": 35000 },
+      { "city_id": "67", "city_name": "Binjai", "postal_code": "20711", "ongkir": 38000 },
+      { "city_id": "334", "city_name": "Pematang Siantar", "postal_code": "21111", "ongkir": 40000 },
+      { "city_id": "121", "city_name": "Deli Serdang", "postal_code": "20511", "ongkir": 38000 }
+    ]
+  },
+  {
+    "provinsi": "Sumatera Barat",
+    "cities": [
+      { "city_id": "318", "city_name": "Padang", "postal_code": "25111", "ongkir": 33000 },
+      { "city_id": "93", "city_name": "Bukittinggi", "postal_code": "26111", "ongkir": 36000 }
+    ]
+  },
+  {
+    "provinsi": "Riau",
+    "cities": [
+      { "city_id": "352", "city_name": "Pekanbaru", "postal_code": "28111", "ongkir": 33000 },
+      { "city_id": "124", "city_name": "Dumai", "postal_code": "28811", "ongkir": 36000 }
+    ]
+  },
+  {
+    "provinsi": "Sumatera Selatan",
+    "cities": [
+      { "city_id": "327", "city_name": "Palembang", "postal_code": "30111", "ongkir": 30000 },
+      { "city_id": "242", "city_name": "Lubuk Linggau", "postal_code": "31611", "ongkir": 35000 },
+      { "city_id": "364", "city_name": "Prabumulih", "postal_code": "31111", "ongkir": 33000 }
+    ]
+  },
+  {
+    "provinsi": "Lampung",
+    "cities": [
+      { "city_id": "21", "city_name": "Bandar Lampung", "postal_code": "35111", "ongkir": 25000 },
+      { "city_id": "286", "city_name": "Metro", "postal_code": "34111", "ongkir": 28000 }
+    ]
+  },
+  {
+    "provinsi": "Sulawesi Selatan",
+    "cities": [
+      { "city_id": "254", "city_name": "Makassar", "postal_code": "90111", "ongkir": 40000 },
+      { "city_id": "331", "city_name": "Pare-Pare", "postal_code": "91111", "ongkir": 45000 },
+      { "city_id": "329", "city_name": "Palopo", "postal_code": "91911", "ongkir": 47000 }
+    ]
+  },
+  {
+    "provinsi": "Sulawesi Utara",
+    "cities": [
+      { "city_id": "256", "city_name": "Manado", "postal_code": "95111", "ongkir": 45000 },
+      { "city_id": "70", "city_name": "Bitung", "postal_code": "95511", "ongkir": 48000 },
+      { "city_id": "462", "city_name": "Tomohon", "postal_code": "95411", "ongkir": 48000 }
+    ]
+  }
+]
