@@ -1,10 +1,10 @@
 <div align="center">
 
-# NextCart - Flutter E-Commerce App
+# Petshop Jinx - Flutter E-Commerce App
 
-**A production-ready, full-featured e-commerce mobile application built with Flutter & Firebase**
+**Aplikasi mobile e-commerce petshop siap pakai, dibangun dengan Flutter & Firebase**
 
-*Open-source Flutter shopping app with cart, wishlist, checkout, order tracking, push notifications & more*
+*Aplikasi belanja hewan peliharaan open-source dengan keranjang, wishlist, checkout, lacak pesanan, notifikasi & lebih*
 
 *Clean Architecture | Riverpod | Firestore | Material Design 3*
 
@@ -15,7 +15,7 @@
 [![License](https://img.shields.io/badge/License-Private-red?style=flat-square)]()
 [![Platform](https://img.shields.io/badge/Platform-Android_|_iOS_|_Web-green?style=flat-square)]()
 
-[![Download APK](https://img.shields.io/badge/Download_APK-v1.0.0-brightgreen?style=for-the-badge&logo=android&logoColor=white)](assets/apk/nextcart-v1.0.0.apk)
+[![Download APK](https://img.shields.io/badge/Download_APK-v1.0.0-brightgreen?style=for-the-badge&logo=android&logoColor=white)](assets/apk/petshop-jinx-v1.0.0.apk)
 
 </div>
 
@@ -23,7 +23,7 @@
 
 ## Overview
 
-NextCart is an open-source e-commerce app for Android, iOS, and Web. It provides a complete online shopping experience including product browsing, search, shopping cart, wishlist, checkout with cash on delivery, real-time order tracking, and push notifications. Built with clean architecture and powered by Firebase for authentication, database, and storage.
+Petshop Jinx adalah aplikasi e-commerce petshop untuk Android, iOS, dan Web. Menyediakan pengalaman belanja online lengkap mulai dari menjelajahi produk, pencarian, keranjang belanja, wishlist, checkout dengan metode cash on delivery, pelacakan pesanan secara real-time, hingga notifikasi push. Dibangun dengan clean architecture dan didukung Firebase untuk autentikasi, database, dan penyimpanan.
 
 ---
 
@@ -35,18 +35,18 @@ NextCart is an open-source e-commerce app for Android, iOS, and Web. It provides
     <td align="center"><img src="assets/screenshots/splash.png" width="200"/><br/><b>Splash</b></td>
     <td align="center"><img src="assets/screenshots/login.png" width="200"/><br/><b>Login</b></td>
     <td align="center"><img src="assets/screenshots/home.png" width="200"/><br/><b>Home</b></td>
-    <td align="center"><img src="assets/screenshots/category.png" width="200"/><br/><b>Categories</b></td>
+    <td align="center"><img src="assets/screenshots/category.png" width="200"/><br/><b>Kategori</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="assets/screenshots/cart.png" width="200"/><br/><b>Cart</b></td>
+    <td align="center"><img src="assets/screenshots/cart.png" width="200"/><br/><b>Keranjang</b></td>
     <td align="center"><img src="assets/screenshots/wishlist.png" width="200"/><br/><b>Wishlist</b></td>
     <td align="center"><img src="assets/screenshots/checkout.png" width="200"/><br/><b>Checkout</b></td>
-    <td align="center"><img src="assets/screenshots/profile.png" width="200"/><br/><b>Profile</b></td>
+    <td align="center"><img src="assets/screenshots/profile.png" width="200"/><br/><b>Profil</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="assets/screenshots/order_list.png" width="200"/><br/><b>Orders</b></td>
-    <td align="center"><img src="assets/screenshots/order_details.png" width="200"/><br/><b>Order Details</b></td>
-    <td align="center"><img src="assets/screenshots/notification.png" width="200"/><br/><b>Notifications</b></td>
+    <td align="center"><img src="assets/screenshots/order_list.png" width="200"/><br/><b>Pesanan</b></td>
+    <td align="center"><img src="assets/screenshots/order_details.png" width="200"/><br/><b>Detail Pesanan</b></td>
+    <td align="center"><img src="assets/screenshots/notification.png" width="200"/><br/><b>Notifikasi</b></td>
     <td></td>
   </tr>
 </table>
@@ -56,145 +56,145 @@ NextCart is an open-source e-commerce app for Android, iOS, and Web. It provides
 
 ## Tech Stack
 
-- **Flutter** (Dart 3.8+) -- cross-platform (Android, iOS, Web)
-- **Firebase** -- Auth, Firestore, Cloud Storage, Cloud Messaging
-- **Riverpod** -- state management (with code generation)
-- **GoRouter** -- declarative routing with auth guards (StatefulShellRoute)
-- **Freezed** -- immutable data models
-- **Dio** -- HTTP networking
-- **GNav** -- modern bottom navigation bar
-- **Local Notifications** -- push notifications for order status updates
-- **Material Design 3** -- green-themed UI with responsive layout (ScreenUtil)
+- **Flutter** (Dart 3.8+) — cross-platform (Android, iOS, Web)
+- **Firebase** — Auth, Firestore, Cloud Storage, Cloud Messaging
+- **Riverpod** — state management (dengan code generation)
+- **GoRouter** — declarative routing dengan auth guards (StatefulShellRoute)
+- **Freezed** — immutable data models
+- **Dio** — HTTP networking
+- **GNav** — modern bottom navigation bar
+- **Local Notifications** — push notification untuk update status pesanan
+- **Material Design 3** — UI bertema hijau dengan responsive layout (ScreenUtil)
 
-## Features
+## Fitur
 
 - Google Sign-In & Firebase Authentication
-- Product catalog with category filtering
-- Full-text product search
-- Shopping cart (add, remove, update quantity)
-- Wishlist (save favorite products)
-- Checkout with delivery details & cash on delivery
-- Order history with real-time status tracking (pending, confirmed, shipped, delivered)
-- Push notifications on order status changes
-- In-app notification center with unread badge
-- User profile & delivery address management
-- Dark mode / light mode / system theme
-- Onboarding flow for new users
-- Responsive UI for Android, iOS & Web
+- Katalog produk dengan filter kategori
+- Pencarian produk full-text
+- Keranjang belanja (tambah, hapus, ubah jumlah)
+- Wishlist (simpan produk favorit)
+- Checkout dengan detail pengiriman & cash on delivery
+- Riwayat pesanan dengan pelacakan status real-time (pending, dikonfirmasi, dikirim, diterima)
+- Notifikasi push saat status pesanan berubah
+- Pusat notifikasi in-app dengan badge belum dibaca
+- Profil pengguna & manajemen alamat pengiriman
+- Mode gelap / terang / mengikuti sistem
+- Alur onboarding untuk pengguna baru
+- UI responsif untuk Android, iOS & Web
 
-## Project Structure
+## Struktur Proyek
 
 ```
 lib/
 ├── app/                # Router, routes, navigation shell
 ├── core/               # DI providers, theme, storage, utils, shared widgets
-├── features/           # Feature modules (Clean Architecture)
-│   ├── auth/           #   Authentication
-│   ├── home/           #   Home screen
-│   ├── categories/     #   Product categories
-│   ├── products/       #   Product listings
-│   ├── product_detail/ #   Product detail view
-│   ├── cart/           #   Shopping cart
-│   ├── checkout/       #   Checkout process
-│   ├── orders/         #   Order management
-│   ├── notifications/  #   Push & in-app notifications
+├── features/           # Modul fitur (Clean Architecture)
+│   ├── auth/           #   Autentikasi
+│   ├── home/           #   Halaman utama
+│   ├── categories/     #   Kategori produk
+│   ├── products/       #   Daftar produk
+│   ├── product_detail/ #   Detail produk
+│   ├── cart/           #   Keranjang belanja
+│   ├── checkout/       #   Proses checkout
+│   ├── orders/         #   Manajemen pesanan
+│   ├── notifications/  #   Notifikasi push & in-app
 │   ├── wishlist/       #   Wishlist
-│   ├── profile/        #   User profile
-│   └── search/         #   Product search
-└── shared/             # App-wide shared widgets
+│   ├── profile/        #   Profil pengguna
+│   └── search/         #   Pencarian produk
+└── shared/             # Widget bersama seluruh aplikasi
 ```
 
-Each feature follows the **data / domain / presentation** layer split.
+Setiap fitur mengikuti pemisahan layer **data / domain / presentation**.
 
-## Getting Started
+## Memulai
 
-### Prerequisites
+### Prasyarat
 
 - Flutter SDK (stable channel)
 - Dart 3.8+
-- Android Studio / Xcode (for emulators)
-- A Firebase project (see [Firebase setup docs](https://firebase.google.com/docs/flutter/setup))
+- Android Studio / Xcode (untuk emulator)
+- Proyek Firebase (lihat [dokumentasi setup Firebase](https://firebase.google.com/docs/flutter/setup))
 
 ### Setup
 
 ```bash
-# Clone the repo
-git clone <repo-url>
-cd nextcart
+# Clone repo
+git clone https://github.com/igincantek/MOBIKEIGIN.git
+cd MOBIKEIGIN
 
-# Install dependencies
+# Install dependensi
 flutter pub get
 
-# Run code generation (Freezed, Riverpod, JSON serialization)
+# Jalankan code generation (Freezed, Riverpod, JSON serialization)
 dart run build_runner build --delete-conflicting-outputs
 
-# Run the app
+# Jalankan aplikasi
 flutter run
 ```
 
-### Useful Commands
+### Perintah Berguna
 
 ```bash
-# Watch mode for code generation (re-runs on file changes)
+# Mode watch untuk code generation (otomatis re-run saat file berubah)
 dart run build_runner watch --delete-conflicting-outputs
 
-# Run linter
+# Jalankan linter
 flutter analyze
 
-# Run tests
+# Jalankan test
 flutter test
 
 # Build release APK
 flutter build apk
 
-# Build for iOS
+# Build untuk iOS
 flutter build ios
 
-# Build for web
+# Build untuk web
 flutter build web
 ```
 
-## Firebase Setup
+## Setup Firebase
 
-The app uses the following Firebase services:
+Aplikasi menggunakan layanan Firebase berikut:
 
-| Service | Purpose |
+| Layanan | Kegunaan |
 |---------|---------|
-| Firebase Auth | User authentication (email, Google Sign-In) |
-| Cloud Firestore | Product catalog, orders, cart, notifications, user data |
-| Cloud Storage | Product images and assets |
-| Cloud Messaging | Push notification permissions and token management |
+| Firebase Auth | Autentikasi pengguna (email, Google Sign-In) |
+| Cloud Firestore | Katalog produk, pesanan, keranjang, notifikasi, data pengguna |
+| Cloud Storage | Gambar produk dan aset |
+| Cloud Messaging | Izin notifikasi push dan manajemen token |
 
-Firestore security rules allow public reads for products/categories and user-scoped writes for carts, orders, and notifications. See [firestore.rules](firestore.rules) and [storage.rules](storage.rules).
+Aturan keamanan Firestore mengizinkan pembacaan publik untuk produk/kategori dan penulisan terbatas per pengguna untuk keranjang, pesanan, dan notifikasi. Lihat [firestore.rules](firestore.rules) dan [storage.rules](storage.rules).
 
-### Notifications
+### Notifikasi
 
-When an order status changes in Firestore, the app:
-1. Detects the change via a real-time orders stream listener
-2. Writes a notification document to `users/{uid}/notifications/`
-3. Shows a local push notification on the device
-4. Tapping the notification navigates to the order detail screen
+Ketika status pesanan berubah di Firestore, aplikasi akan:
+1. Mendeteksi perubahan melalui listener stream pesanan real-time
+2. Menulis dokumen notifikasi ke `users/{uid}/notifications/`
+3. Menampilkan notifikasi push lokal di perangkat
+4. Mengetuk notifikasi akan membuka halaman detail pesanan
 
-## Architecture
+## Arsitektur
 
-The app follows **Clean Architecture** with three layers per feature:
+Aplikasi mengikuti **Clean Architecture** dengan tiga layer per fitur:
 
-1. **Data** -- repository implementations (Firebase, API calls)
-2. **Domain** -- models (Freezed classes), repository interfaces
-3. **Presentation** -- UI widgets, ViewModels (Riverpod providers)
+1. **Data** — implementasi repository (Firebase, API calls)
+2. **Domain** — model (kelas Freezed), antarmuka repository
+3. **Presentation** — widget UI, ViewModel (Riverpod providers)
 
-Dependency injection is handled via Riverpod providers in `core/di/`.
+Dependency injection ditangani via Riverpod providers di `core/di/`.
 
-## License
+## Lisensi
 
-This project is private and not licensed for redistribution.
+Proyek ini bersifat privat dan tidak dilisensikan untuk redistribusi.
 
 ---
 
 <div align="center">
 
-**Built with Flutter & Firebase**
+**Dibuat oleh Made Igin · Dibangun dengan Flutter & Firebase**
 
-`ecommerce` `flutter-ecommerce` `flutter-shopping-app` `shopping-cart` `online-store` `flutter-app` `flutter` `dart` `firebase` `firestore` `riverpod` `clean-architecture` `material-design-3` `go-router` `freezed` `push-notifications` `wishlist` `order-tracking` `google-sign-in` `cross-platform`
+`petshop` `flutter-ecommerce` `flutter-shopping-app` `shopping-cart` `online-store` `flutter-app` `flutter` `dart` `firebase` `firestore` `riverpod` `clean-architecture` `material-design-3` `go-router` `freezed` `push-notifications` `wishlist` `order-tracking` `google-sign-in` `cross-platform`
 
 </div>
