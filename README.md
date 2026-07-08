@@ -16,7 +16,6 @@
 [![License](https://img.shields.io/badge/License-Private-red?style=flat-square)]()
 [![Platform](https://img.shields.io/badge/Platform-Android_|_iOS_|_Web-green?style=flat-square)]()
 
-[![Download APK](https://img.shields.io/badge/Download_APK-v1.0.0-brightgreen?style=for-the-badge&logo=android&logoColor=white)](assets/apk/petshop-jinx-v1.0.0.apk)
 
 </div>
 
