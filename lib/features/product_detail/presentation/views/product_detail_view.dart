@@ -64,7 +64,7 @@ class _ProductDetailViewState extends ConsumerState<ProductDetailView> {
           return CustomScrollView(
             physics: const BouncingScrollPhysics(),
             slivers: [
-              // SLIVER APP BAR DENGAN CAROUSEL MULTI GAMBAR (PAGEVIEW)
+              // SLIVER APP BAR DENGAN CAROUSEL MULTI GAMBAR
               SliverAppBar(
                 expandedHeight: 340,
                 pinned: true,
@@ -112,7 +112,7 @@ class _ProductDetailViewState extends ConsumerState<ProductDetailView> {
                               maxScale: 3.0,
                               child: ProductImage(
                                 url: images[index],
-                                fit: BoxFit.contain, // contain agar kemasan produk tidak terpotong
+                                fit: BoxFit.contain,
                               ),
                             );
                           },
@@ -175,12 +175,12 @@ class _ProductDetailViewState extends ConsumerState<ProductDetailView> {
                 ),
               ),
 
-              // INFO PRODUK (JUDUL, KATEGORI, DAN HARGA DENGAN PRICETAG)
+              // INFO PRODUK (JUDUL, STATUS STOK, DAN HARGA)
               SliverToBoxAdapter(
                 child: Container(
                   decoration: BoxDecoration(
                     color: theme.colorScheme.surface,
-                    borderRadius: BorderRadius.vertical(bottom: Radius.circular(24)),
+                    borderRadius: const BorderRadius.vertical(bottom: Radius.circular(24)),
                   ),
                   padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
                   child: Column(
@@ -189,6 +189,7 @@ class _ProductDetailViewState extends ConsumerState<ProductDetailView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          // Badge kategori disembunyikan/dibersihkan agar tidak memunculkan UUID mentah
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                             decoration: BoxDecoration(
@@ -196,37 +197,49 @@ class _ProductDetailViewState extends ConsumerState<ProductDetailView> {
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Text(
-                              p.categoryId.toUpperCase(),
+                              'Anda Petshop Official',
                               style: TextStyle(
                                 color: theme.colorScheme.onPrimaryContainer,
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w700,
                                 fontSize: 11,
-                                letterSpacing: 0.5,
+                                letterSpacing: 0.3,
                               ),
                             ),
                           ),
-                          Text(
-                            p.stock > 0 ? 'Stok: ${p.stock} pcs' : 'Stok Habis',
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.w600,
-                              color: p.stock > 0 ? theme.colorScheme.onSurfaceVariant : theme.colorScheme.error,
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: p.stock > 0 
+                                  ? theme.colorScheme.surfaceContainerHighest 
+                                  : theme.colorScheme.errorContainer,
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child: Text(
+                              p.stock > 0 ? 'Stok: ${p.stock} pcs' : 'Stok Habis',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 12,
+                                color: p.stock > 0 
+                                    ? theme.colorScheme.onSurfaceVariant 
+                                    : theme.colorScheme.onErrorContainer,
+                              ),
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 14),
+                      const SizedBox(height: 16),
                       Text(
                         p.title,
                         style: theme.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.w800,
-                          fontSize: 22,
+                          fontSize: 20,
                           color: theme.colorScheme.onSurface,
-                          letterSpacing: -0.5,
+                          letterSpacing: -0.3,
+                          height: 1.3,
                         ),
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 16),
                       
-                      // Menggunakan komponen PriceTag asli project-mu agar layout harga rapi dan sinkron
                       PriceTag(
                         price: p.price,
                         originalPrice: p.originalPrice,
@@ -309,7 +322,7 @@ class _ProductDetailViewState extends ConsumerState<ProductDetailView> {
                                   borderRadius: BorderRadius.circular(14),
                                 ),
                               ),
-                              onPressed: () async {
+                              onPressed: p.stock > 0 ? () async {
                                 await _addToCart(p);
                                 if (!mounted) return;
                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -320,7 +333,7 @@ class _ProductDetailViewState extends ConsumerState<ProductDetailView> {
                                     content: Text('${p.title} ditambahkan ke keranjang 🛒'),
                                   ),
                                 );
-                              },
+                              } : null,
                               child: Text(
                                 'Add to Cart',
                                 style: TextStyle(
@@ -344,11 +357,11 @@ class _ProductDetailViewState extends ConsumerState<ProductDetailView> {
                                   borderRadius: BorderRadius.circular(14),
                                 ),
                               ),
-                              onPressed: () async {
+                              onPressed: p.stock > 0 ? () async {
                                 await _addToCart(p);
                                 if (!mounted) return;
                                 context.go(Routes.cart);
-                              },
+                              } : null,
                               child: const Text(
                                 'Buy Now',
                                 style: TextStyle(

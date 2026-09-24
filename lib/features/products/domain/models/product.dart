@@ -22,6 +22,24 @@ sealed class Product with _$Product {
 
   factory Product.fromJson(Map<String, dynamic> json) => _$ProductFromJson(json);
 
+  // Penterjemah data dari API Laravel MySQL
+  factory Product.fromLaravel(Map<String, dynamic> json) {
+    return Product(
+      id: json['id_product']?.toString() ?? '',
+      title: json['name']?.toString() ?? '',
+      description: json['description']?.toString() ?? '',
+      // Mengubah format image_url tunggal dari Laravel menjadi bentuk List (array)
+      images: json['image_url'] != null ? [json['image_url'].toString()] : [],
+      price: double.tryParse(json['price']?.toString() ?? '0') ?? 0,
+      originalPrice: double.tryParse(json['price']?.toString() ?? '0') ?? 0,
+      discountPercent: 0, // Dikosongkan karena tidak ada diskon di Laravel
+      categoryId: json['id_category']?.toString() ?? '',
+      stock: (json['stock'] as num?)?.toInt() ?? 0,
+      createdAt: json['created_at'] != null ? DateTime.tryParse(json['created_at']) : null,
+    );
+  }
+
+  // Penterjemah data lama dari Firestore (tetap dibiarkan agar tidak error jika ada sisa kode lama)
   factory Product.fromFirestore(
     DocumentSnapshot<Map<String, dynamic>> snap,
   ) {

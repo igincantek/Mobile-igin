@@ -54,7 +54,7 @@ final class ProductRepositoryProvider
   }
 }
 
-String _$productRepositoryHash() => r'22c5bd4af0ab95a637cd4000ae04af5ff27938b5';
+String _$productRepositoryHash() => r'7efdd6e3b70491c5390267e40ce99b7b86873a38';
 
 @ProviderFor(productsStream)
 final productsStreamProvider = ProductsStreamFamily._();

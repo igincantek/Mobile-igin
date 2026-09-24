@@ -31,6 +31,7 @@ class HomeView extends ConsumerWidget {
       backgroundColor: theme.colorScheme.surfaceContainerLowest,
       body: SafeArea(
         child: RefreshIndicator(
+          color: theme.colorScheme.primary,
           onRefresh: () async {
             ref.invalidate(categoriesStreamProvider);
             ref.invalidate(productsStreamProvider);
@@ -41,7 +42,7 @@ class HomeView extends ConsumerWidget {
               // HEADER SECTION
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 16, 16),
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 16),
                   child: Row(
                     children: [
                       Expanded(
@@ -81,16 +82,18 @@ class HomeView extends ConsumerWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 4),
+                            const SizedBox(height: 6),
                             Text(
                               'Temukan kebutuhan terbaik untuk hewan peliharaanmu',
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 color: theme.colorScheme.onSurfaceVariant,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ],
                         ),
                       ),
+                      const SizedBox(width: 12),
                       _NotificationBell(ref: ref),
                     ],
                   ),
@@ -102,18 +105,22 @@ class HomeView extends ConsumerWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: InkWell(
-                    borderRadius: BorderRadius.circular(99),
+                    borderRadius: BorderRadius.circular(16),
                     onTap: () => context.push(Routes.search),
                     child: Container(
-                      height: 54,
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      height: 52,
+                      padding: const EdgeInsets.symmetric(horizontal: 18),
                       decoration: BoxDecoration(
                         color: theme.colorScheme.surface,
-                        borderRadius: BorderRadius.circular(99),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(
+                          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
+                          width: 1,
+                        ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.04),
-                            blurRadius: 12,
+                            color: Colors.black.withValues(alpha: 0.03),
+                            blurRadius: 10,
                             offset: const Offset(0, 4),
                           ),
                         ],
@@ -122,14 +129,17 @@ class HomeView extends ConsumerWidget {
                         children: [
                           const FaIcon(
                             FontAwesomeIcons.magnifyingGlass,
-                            size: 16,
+                            size: 15,
                             color: Color(0xFF9CA3AF),
                           ),
                           const SizedBox(width: 14),
-                          Text(
-                            'Cari makanan, mainan, vitamin...',
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                              color: theme.colorScheme.onSurfaceVariant,
+                          Expanded(
+                            child: Text(
+                              'Cari makanan, mainan, vitamin...',
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.8),
+                              ),
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                         ],
@@ -138,14 +148,14 @@ class HomeView extends ConsumerWidget {
                   ),
                 ),
               ),
-              const SliverToBoxAdapter(child: SizedBox(height: 24)),
+              const SliverToBoxAdapter(child: SizedBox(height: 20)),
 
               // BANNER CAROUSEL
               SliverToBoxAdapter(
                 child: _BannerCarousel(featuredAsync: featuredAsync),
               ),
 
-              // KATEGORI
+              // KATEGORI POPULER
               SliverToBoxAdapter(
                 child: _SectionHeader(
                   title: 'Kategori Populer',
@@ -193,14 +203,14 @@ class HomeView extends ConsumerWidget {
                   }
                   return SliverPadding(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                     sliver: SliverGrid(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                        crossAxisSpacing: 14,
-                        mainAxisSpacing: 14,
-                        childAspectRatio: 0.68,
+                        crossAxisSpacing: 16,
+                        mainAxisSpacing: 16,
+                        childAspectRatio: 0.66,
                       ),
                       delegate: SliverChildBuilderDelegate(
                         (_, i) => ProductCard(
@@ -215,7 +225,7 @@ class HomeView extends ConsumerWidget {
                   );
                 },
               ),
-              const SliverToBoxAdapter(child: SizedBox(height: 32)),
+              const SliverToBoxAdapter(child: SizedBox(height: 36)),
             ],
           ),
         ),
@@ -232,8 +242,9 @@ class _SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 24, 16, 12),
+      padding: const EdgeInsets.fromLTRB(20, 24, 20, 12),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -242,18 +253,22 @@ class _SectionHeader extends StatelessWidget {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w800,
-              color: Theme.of(context).colorScheme.onSurface,
+              color: theme.colorScheme.onSurface,
               letterSpacing: -0.3,
             ),
           ),
-          TextButton(
-            onPressed: onSeeAll,
-            child: Text(
-              'Lihat semua',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
-                fontWeight: FontWeight.w700,
-                fontSize: 14,
+          InkWell(
+            onTap: onSeeAll,
+            borderRadius: BorderRadius.circular(8),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+              child: Text(
+                'Lihat semua',
+                style: TextStyle(
+                  color: theme.colorScheme.primary,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 13,
+                ),
               ),
             ),
           ),
@@ -272,14 +287,14 @@ class _CategoryHorizontalList extends StatelessWidget {
   Widget build(BuildContext context) {
     if (categories.isEmpty) {
       return const Padding(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         child: Text('Kategori akan muncul setelah data diperbarui.'),
       );
     }
     return SizedBox(
-      height: 105,
+      height: 108,
       child: ListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         itemCount: categories.length,
@@ -298,17 +313,20 @@ class _CategoryCardItem extends StatelessWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     switch (name.toLowerCase().trim()) {
       case 'makanan':
-        return isDark ? const Color(0xFF2A3328) : const Color(0xFFE2E7DE);
+      case 'makanan kucing':
+      case 'makanan anjing':
+        return isDark ? const Color(0xFF2A3328) : const Color(0xFFE8F0E4);
       case 'perawatan & kesehatan':
-      case 'perawatan & k..':
-        return isDark ? const Color(0xFF1E2E22) : const Color(0xFFEAF2E8);
+      case 'grooming & care':
+        return isDark ? const Color(0xFF1E2E22) : const Color(0xFFEAF5E8);
       case 'perlengkapan':
-        return isDark ? const Color(0xFF252B22) : const Color(0xFFF4F6F0);
+      case 'aksesoris':
+        return isDark ? const Color(0xFF252B22) : const Color(0xFFF1F5ED);
       case 'vitamin & kesehatan':
-      case 'vitamin & k..':
-        return isDark ? const Color(0xFF2E2220) : const Color(0xFFF3E1DC);
+      case 'mainan':
+        return isDark ? const Color(0xFF2E2220) : const Color(0xFFFAECE8);
       default:
-        return isDark ? const Color(0xFF1E2E22) : const Color(0xFFEAF2E8);
+        return isDark ? const Color(0xFF1E2E22) : const Color(0xFFEAF5E8);
     }
   }
 
@@ -317,10 +335,10 @@ class _CategoryCardItem extends StatelessWidget {
     if (key.contains('food') || key.contains('makanan')) {
       return FontAwesomeIcons.bowlFood;
     }
-    if (key.contains('shampoo') || key.contains('perawatan')) {
+    if (key.contains('shampoo') || key.contains('perawatan') || key.contains('grooming')) {
       return FontAwesomeIcons.soap;
     }
-    if (key.contains('accessories') || key.contains('perlengkapan')) {
+    if (key.contains('accessories') || key.contains('perlengkapan') || key.contains('aksesoris')) {
       return FontAwesomeIcons.basketShopping;
     }
     if (key.contains('vitamin') || key.contains('kesehatan')) {
@@ -338,48 +356,52 @@ class _CategoryCardItem extends StatelessWidget {
         category.image != null && category.image!.isNotEmpty;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 4),
       child: InkWell(
+        // Menggunakan category.id agar langsung sinkron dengan primary key/UUID di Laravel API
         onTap: () =>
             context.push(Routes.productsByCategoryPath(category.id)),
         borderRadius: BorderRadius.circular(16),
-        child: Column(
-          children: [
-            Container(
-              height: 64,
-              width: 64,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: cardColor,
-                borderRadius: BorderRadius.circular(18),
-                boxShadow: [
-                  BoxShadow(
-                    color: cardColor.withValues(alpha: 0.4),
-                    blurRadius: 8,
-                    offset: const Offset(0, 3),
-                  )
-                ],
+        child: SizedBox(
+          width: 76,
+          child: Column(
+            children: [
+              Container(
+                height: 64,
+                width: 64,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: cardColor,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.03),
+                      blurRadius: 8,
+                      offset: const Offset(0, 3),
+                    )
+                  ],
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: hasImage
+                    ? ProductImage(url: category.image, fit: BoxFit.cover)
+                    : FaIcon(iconData,
+                        size: 22,
+                        color: Theme.of(context).colorScheme.primary),
               ),
-              clipBehavior: Clip.antiAlias,
-              child: hasImage
-                  ? ProductImage(url: category.image, fit: BoxFit.cover)
-                  : FaIcon(iconData,
-                      size: 24,
-                      color: Theme.of(context).colorScheme.primary),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              category.name,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: Theme.of(context).colorScheme.onSurface,
+              const SizedBox(height: 8),
+              Text(
+                category.name,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w600,
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -396,10 +418,10 @@ class _BannerCarousel extends StatefulWidget {
 }
 
 class _BannerCarouselState extends State<_BannerCarousel> {
-  static const _autoplayInterval = Duration(seconds: 4);
+  static const _autoplayInterval = Duration(seconds: 5);
   static const _maxItems = 5;
 
-  final _controller = PageController(viewportFraction: 0.88);
+  final _controller = PageController(viewportFraction: 0.90);
   Timer? _timer;
   int _index = 0;
 
@@ -416,7 +438,7 @@ class _BannerCarouselState extends State<_BannerCarousel> {
     final next = (_index + 1) % count;
     _controller.animateToPage(
       next,
-      duration: const Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 700),
       curve: Curves.easeInOutCubic,
     );
   }
@@ -438,7 +460,7 @@ class _BannerCarouselState extends State<_BannerCarousel> {
     if (items.isEmpty) return const SizedBox.shrink();
 
     return SizedBox(
-      height: 195,
+      height: 185,
       child: Stack(
         children: [
           PageView.builder(
@@ -453,9 +475,8 @@ class _BannerCarouselState extends State<_BannerCarousel> {
               ),
             ),
           ),
-          // Dot indicators — center bottom
           Positioned(
-            bottom: 10,
+            bottom: 12,
             left: 0,
             right: 0,
             child: Center(
@@ -497,11 +518,11 @@ class _BannerCard extends StatelessWidget {
     final colors = _gradientColors();
 
     return AnimatedScale(
-      scale: isActive ? 1.0 : 0.94,
+      scale: isActive ? 1.0 : 0.95,
       duration: const Duration(milliseconds: 350),
       curve: Curves.easeOutCubic,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
         child: GestureDetector(
           onTap: onTap,
           child: Container(
@@ -512,63 +533,50 @@ class _BannerCard extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
-              boxShadow: isActive
-                  ? [
-                      BoxShadow(
-                        color: colors[1].withValues(alpha: 0.45),
-                        blurRadius: 20,
-                        offset: const Offset(0, 8),
-                      ),
-                    ]
-                  : [],
+              boxShadow: [
+                BoxShadow(
+                  color: colors[1].withValues(alpha: 0.3),
+                  blurRadius: 16,
+                  offset: const Offset(0, 6),
+                ),
+              ],
             ),
             clipBehavior: Clip.antiAlias,
             child: Stack(
               children: [
-                // Dekorasi lingkaran transparan
+                // Efek Dekorasi Lingkaran
                 Positioned(
                   right: -30,
                   top: -30,
                   child: Container(
-                    width: 160,
-                    height: 160,
+                    width: 150,
+                    height: 150,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.white.withValues(alpha: 0.06),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  right: 30,
-                  bottom: -40,
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white.withValues(alpha: 0.04),
+                      color: Colors.white.withValues(alpha: 0.05),
                     ),
                   ),
                 ),
 
-                // Gambar produk (kanan)
+                // Gambar Produk di Kanan
                 Positioned(
                   right: 16,
                   top: 0,
                   bottom: 0,
                   child: SizedBox(
-                    width: 110,
+                    width: 105,
                     child: Center(
                       child: Container(
+                        padding: const EdgeInsets.all(6),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
                           color: Colors.white.withValues(alpha: 0.08),
                         ),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(16),
+                          borderRadius: BorderRadius.circular(12),
                           child: SizedBox(
-                            height: 120,
-                            width: 100,
+                            height: 110,
+                            width: 90,
                             child: ProductImage(
                               url: product.primaryImage,
                               fit: BoxFit.contain,
@@ -580,21 +588,20 @@ class _BannerCard extends StatelessWidget {
                   ),
                 ),
 
-                // Konten teks (kiri)
+                // Konten Teks di Kiri
                 Positioned(
                   left: 20,
-                  top: 20,
-                  bottom: 20,
-                  right: 130,
+                  top: 18,
+                  bottom: 18,
+                  right: 125,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Badge
                       if (product.isOnSale)
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 4),
+                              horizontal: 10, vertical: 3),
                           decoration: BoxDecoration(
                             color: const Color(0xFFFF6B35),
                             borderRadius: BorderRadius.circular(20),
@@ -603,16 +610,15 @@ class _BannerCard extends StatelessWidget {
                             'Hemat ${product.discountPercent}%',
                             style: const TextStyle(
                               color: Colors.white,
-                              fontSize: 11,
+                              fontSize: 10,
                               fontWeight: FontWeight.w700,
-                              letterSpacing: 0.2,
                             ),
                           ),
                         )
                       else
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 4),
+                              horizontal: 10, vertical: 3),
                           decoration: BoxDecoration(
                             color: Colors.white.withValues(alpha: 0.15),
                             borderRadius: BorderRadius.circular(20),
@@ -621,50 +627,41 @@ class _BannerCard extends StatelessWidget {
                             'Unggulan',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 11,
+                              fontSize: 10,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
 
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 8),
 
-                      // Judul produk
                       Text(
                         product.title,
-                        maxLines: 3,
+                        maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: 15,
                           fontWeight: FontWeight.w800,
                           letterSpacing: -0.3,
-                          height: 1.3,
-                          shadows: [
-                            Shadow(
-                              color: Colors.black26,
-                              blurRadius: 4,
-                              offset: Offset(0, 1),
-                            ),
-                          ],
+                          height: 1.25,
                         ),
                       ),
 
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 10),
 
-                      // Tombol CTA
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 14, vertical: 7),
+                            horizontal: 12, vertical: 6),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(16),
                         ),
                         child: Text(
-                          'Lihat',
+                          'Lihat Detail',
                           style: TextStyle(
                             color: colors[1],
-                            fontSize: 12,
+                            fontSize: 11,
                             fontWeight: FontWeight.w800,
                           ),
                         ),
@@ -699,10 +696,13 @@ class _NotificationBell extends StatelessWidget {
       onPressed: () => context.push(Routes.notifications),
       style: IconButton.styleFrom(
         backgroundColor: theme.colorScheme.surface,
-        elevation: 4,
+        side: BorderSide(
+          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
+        ),
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16)),
-        fixedSize: const Size(48, 48),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        fixedSize: const Size(46, 46),
       ),
       icon: Badge(
         isLabelVisible: unreadCount > 0,
@@ -710,7 +710,7 @@ class _NotificationBell extends StatelessWidget {
         backgroundColor: theme.colorScheme.error,
         child: FaIcon(
           FontAwesomeIcons.bell,
-          size: 18,
+          size: 17,
           color: theme.colorScheme.onSurface,
         ),
       ),
@@ -727,9 +727,9 @@ class _CarouselDots extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.25),
+        color: Colors.black.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(999),
       ),
       child: Row(
@@ -739,9 +739,9 @@ class _CarouselDots extends StatelessWidget {
           return AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeOutCubic,
-            margin: const EdgeInsets.symmetric(horizontal: 3),
-            width: active ? 18 : 5,
-            height: 5,
+            margin: const EdgeInsets.symmetric(horizontal: 2.5),
+            width: active ? 16 : 4.5,
+            height: 4.5,
             decoration: BoxDecoration(
               color: active
                   ? Colors.white

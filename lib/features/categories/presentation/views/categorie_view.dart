@@ -57,7 +57,7 @@ class CategorieView extends ConsumerWidget {
                     return const EmptyState(
                       icon: FontAwesomeIcons.tableCellsLarge,
                       title: 'Kategori Belum Ada',
-                      message: 'Periksa data Firestore collection categories Anda.',
+                      message: 'Periksa data kategori dari server Anda.',
                     );
                   }
                   return GridView.builder(
@@ -90,7 +90,7 @@ class _CategoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     
-    // Warna unik per index agar tidak semua sama
+    // Warna unik per index agar variatif
     final colorOptions = [
       theme.colorScheme.primary,
       theme.colorScheme.secondary,
@@ -106,6 +106,7 @@ class _CategoryTile extends StatelessWidget {
       borderRadius: BorderRadius.circular(18),
       child: InkWell(
         borderRadius: BorderRadius.circular(18),
+        // Menggunakan category.id agar rute produk berdasarkan kategori akurat
         onTap: () => context.push(Routes.productsByCategoryPath(category.id)),
         child: Container(
           decoration: BoxDecoration(
@@ -125,7 +126,7 @@ class _CategoryTile extends StatelessWidget {
                           alignment: Alignment.center,
                           color: cardColor.withValues(alpha: 0.15),
                           child: FaIcon(
-                            _getIconForId(category.id),
+                            _getIconForName(category.name),
                             size: 28,
                             color: cardColor,
                           ),
@@ -149,17 +150,21 @@ class _CategoryTile extends StatelessWidget {
     );
   }
 
-  // Fungsi Deteksi Ikon Berdasarkan ID Firestore (Pastikan ID di Firestore sesuai)
-  IconData _getIconForId(String id) {
-    switch (id.toLowerCase().trim()) {
-      case 'food':
-        return FontAwesomeIcons.bowlFood;
-      case 'shampoo':
-        return FontAwesomeIcons.soap;
-      case 'accessories':
-        return FontAwesomeIcons.basketShopping;
-      default:
-        return FontAwesomeIcons.paw;
+  // Deteksi ikon otomatis berdasarkan nama kategori
+  IconData _getIconForName(String name) {
+    final key = name.toLowerCase().trim();
+    if (key.contains('food') || key.contains('makanan')) {
+      return FontAwesomeIcons.bowlFood;
     }
+    if (key.contains('shampoo') || key.contains('perawatan') || key.contains('grooming')) {
+      return FontAwesomeIcons.soap;
+    }
+    if (key.contains('accessories') || key.contains('perlengkapan') || key.contains('aksesoris')) {
+      return FontAwesomeIcons.basketShopping;
+    }
+    if (key.contains('vitamin') || key.contains('kesehatan')) {
+      return FontAwesomeIcons.paw;
+    }
+    return FontAwesomeIcons.paw;
   }
 }

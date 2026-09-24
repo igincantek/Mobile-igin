@@ -1,56 +1,29 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:nextcart/core/providers/firebase_providers.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:nextcart/features/products/domain/models/product.dart';
 import 'package:nextcart/features/products/domain/product_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'firebase_product_repository.g.dart';
 
-class FirebaseProductRepository implements ProductRepository {
-  FirebaseProductRepository(this._firestore);
+class ApiProductRepository implements ProductRepository {
+  final String baseUrl = 'http://192.168.1.12:8000/api';
 
-  final FirebaseFirestore _firestore;
+  Future<List<Product>> _fetchProductsFromLaravel() async {
+    try {
+      final response = await http.get(Uri.parse('$baseUrl/products-mobile'));
 
-  CollectionReference<Map<String, dynamic>> get _col =>
-      _firestore.collection('products');
-
-  Query<Map<String, dynamic>> _applySort(
-    Query<Map<String, dynamic>> q,
-    ProductSort sort,
-  ) {
-    switch (sort) {
-      case ProductSort.newest:
-        return q.orderBy('createdAt', descending: true);
-      case ProductSort.priceAsc:
-        return q.orderBy('price');
-      case ProductSort.priceDesc:
-        return q.orderBy('price', descending: true);
+      if (response.statusCode == 200) {
+        final jsonResponse = json.decode(response.body);
+        final List<dynamic> data = jsonResponse['data'];
+        
+        return data.map((item) => Product.fromLaravel(item)).toList();
+      } else {
+        throw Exception('Gagal memuat produk dari server');
+      }
+    } catch (e) {
+      throw Exception('Error koneksi API: $e');
     }
-  }
-
-  @override
-  Stream<List<Product>> watchAll({ProductSort sort = ProductSort.newest}) {
-    return _applySort(_col, sort)
-        .snapshots()
-        .map((snap) => snap.docs.map(Product.fromFirestore).toList());
-  }
-
-  @override
-  Stream<List<Product>> watchByCategory(
-    String categoryId, {
-    ProductSort sort = ProductSort.newest,
-  }) {
-    // Sort client-side: combining where() with orderBy() on a different
-    // field requires a Firestore composite index per (sort × category).
-    // For a small catalog the network cost is negligible.
-    return _col
-        .where('categoryId', isEqualTo: categoryId)
-        .snapshots()
-        .map((snap) {
-      final products = snap.docs.map(Product.fromFirestore).toList();
-      _sortInPlace(products, sort);
-      return products;
-    });
   }
 
   void _sortInPlace(List<Product> products, ProductSort sort) {
@@ -64,30 +37,70 @@ class FirebaseProductRepository implements ProductRepository {
           if (bd == null) return -1;
           return bd.compareTo(ad);
         });
+        break;
       case ProductSort.priceAsc:
         products.sort((a, b) => a.price.compareTo(b.price));
+        break;
       case ProductSort.priceDesc:
         products.sort((a, b) => b.price.compareTo(a.price));
+        break;
     }
   }
 
   @override
+  Stream<List<Product>> watchAll({ProductSort sort = ProductSort.newest}) async* {
+    final products = await _fetchProductsFromLaravel();
+    _sortInPlace(products, sort);
+    yield products;
+  }
+
+  @override
+  Stream<List<Product>> watchByCategory(
+    String categoryIdentifier, {
+    ProductSort sort = ProductSort.newest,
+  }) async* {
+    try {
+      final encodedId = Uri.encodeComponent(categoryIdentifier);
+      final response = await http.get(Uri.parse('$baseUrl/products-mobile/category/$encodedId'));
+
+      if (response.statusCode == 200) {
+        final jsonResponse = json.decode(response.body);
+        final List<dynamic> data = jsonResponse['data'];
+        
+        final products = data.map((item) => Product.fromLaravel(item)).toList();
+        _sort_in_place_safe(products, sort);
+        yield products;
+      } else {
+        yield [];
+      }
+    } catch (e) {
+      yield [];
+    }
+  }
+
+  void _sort_in_place_safe(List<Product> products, ProductSort sort) => _sortInPlace(products, sort);
+
+  @override
   Future<List<Product>> getAll() async {
-    final snap = await _col.orderBy('createdAt', descending: true).get();
-    return snap.docs.map(Product.fromFirestore).toList();
+    final products = await _fetchProductsFromLaravel();
+    _sortInPlace(products, ProductSort.newest);
+    return products;
   }
 
   @override
   Future<Product?> getById(String id) async {
-    final snap = await _col.doc(id).get();
-    if (!snap.exists) return null;
-    return Product.fromFirestore(snap);
+    final products = await _fetchProductsFromLaravel();
+    try {
+      return products.firstWhere((p) => p.id == id);
+    } catch (_) {
+      return null;
+    }
   }
 }
 
 @Riverpod(keepAlive: true)
 ProductRepository productRepository(Ref ref) {
-  return FirebaseProductRepository(ref.watch(firestoreProvider));
+  return ApiProductRepository();
 }
 
 @riverpod

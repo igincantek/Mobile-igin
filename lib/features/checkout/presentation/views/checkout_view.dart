@@ -4,7 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:nextcart/core/widgets/ios_back_button.dart';
 import 'package:nextcart/features/checkout/presentation/viewmodels/checkout_viewmodel.dart';
-import 'package:nextcart/features/cart/data/firebase_cart_repository.dart';
 import 'package:nextcart/features/checkout/domain/models/city_model.dart';
 import 'package:nextcart/features/checkout/domain/models/province_model.dart';
 
@@ -54,13 +53,13 @@ class _CheckoutViewState extends ConsumerState<CheckoutView> {
       return;
     }
 
-    // Trigger placeOrder — status loading/error/data dihandle oleh listener di build()
+    // Trigger placeOrder dengan parameter provinceId dan selectedCityObj yang sesuai
     await ref.read(checkoutControllerProvider.notifier).placeOrder(
           customerName: _nameController.text.trim(),
           phone: _phoneController.text.trim(),
           address: _addressController.text.trim(),
-          provinsi: _selectedProvince!,
-          city: _selectedCity!.cityName ?? '',
+          provinceId: _selectedProvince!,
+          selectedCityObj: _selectedCity!,
           courier: _selectedCourier!,
         );
   }
@@ -115,8 +114,8 @@ class _CheckoutViewState extends ConsumerState<CheckoutView> {
       );
     });
 
-    // ── Data reaktif ─────────────────────────────────────────────────────────
-    final cartAsync = ref.watch(cartStreamProvider);
+    // ── Data reaktif (Mengambil langsung dari MySQL Laravel API) ─────────────
+    final cartAsync = ref.watch(mySQLCartItemsProvider);
     final subtotal = cartAsync.maybeWhen(
       data: (items) =>
           items.fold(0.0, (sum, item) => sum + (item.price * item.quantity)),
@@ -156,7 +155,7 @@ class _CheckoutViewState extends ConsumerState<CheckoutView> {
             padding: const EdgeInsets.all(20),
             children: [
               // ── Data Diri ───────────────────────────────────────────────
-              _SectionHeader(title: 'Data Pemesan'),
+              const _SectionHeader(title: 'Data Pemesan'),
               const SizedBox(height: 12),
               _buildTextField(
                 controller: _nameController,
@@ -180,7 +179,7 @@ class _CheckoutViewState extends ConsumerState<CheckoutView> {
               const Divider(height: 40),
 
               // ── Alamat Pengiriman ───────────────────────────────────────
-              _SectionHeader(title: 'Alamat Pengiriman'),
+              const _SectionHeader(title: 'Alamat Pengiriman'),
               const SizedBox(height: 12),
 
               DropdownButtonFormField<String>(
@@ -251,7 +250,7 @@ class _CheckoutViewState extends ConsumerState<CheckoutView> {
               const Divider(height: 40),
 
               // ── Ringkasan Biaya ─────────────────────────────────────────
-              _SectionHeader(title: 'Ringkasan Pembayaran'),
+              const _SectionHeader(title: 'Ringkasan Pembayaran'),
               const SizedBox(height: 8),
               _CostRow(label: 'Subtotal', value: subtotal.toInt()),
               _CostRow(label: 'Ongkos Kirim', value: deliveryFee),

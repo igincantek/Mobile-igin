@@ -55,7 +55,7 @@ final class CategoryRepositoryProvider
 }
 
 String _$categoryRepositoryHash() =>
-    r'd11a4e0f930f05a336cb0ae94a7783418965e714';
+    r'64bc4d90b07dc1899ff27a40fa8b7844530abe03';
 
 @ProviderFor(categoriesStream)
 final categoriesStreamProvider = CategoriesStreamProvider._();

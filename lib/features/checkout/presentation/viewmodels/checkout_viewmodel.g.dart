@@ -9,6 +9,47 @@ part of 'checkout_viewmodel.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
+@ProviderFor(mySQLCartItems)
+final mySQLCartItemsProvider = MySQLCartItemsProvider._();
+
+final class MySQLCartItemsProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<MySQLCartItem>>,
+          List<MySQLCartItem>,
+          FutureOr<List<MySQLCartItem>>
+        >
+    with
+        $FutureModifier<List<MySQLCartItem>>,
+        $FutureProvider<List<MySQLCartItem>> {
+  MySQLCartItemsProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'mySQLCartItemsProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$mySQLCartItemsHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<List<MySQLCartItem>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<MySQLCartItem>> create(Ref ref) {
+    return mySQLCartItems(ref);
+  }
+}
+
+String _$mySQLCartItemsHash() => r'1d9581af1beba456323231234151f2a3949cd1ba';
+
 @ProviderFor(localCities)
 final localCitiesProvider = LocalCitiesProvider._();
 
@@ -136,7 +177,7 @@ final class CheckoutControllerProvider
 }
 
 String _$checkoutControllerHash() =>
-    r'80bfa41798de351ab2e75a1dadb760d42b4b8278';
+    r'cdf6a29a0ac6ebafea6aa83abb6df13cb696d513';
 
 abstract class _$CheckoutController extends $Notifier<AsyncValue<AppOrder?>> {
   AsyncValue<AppOrder?> build();
